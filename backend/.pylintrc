@@ -1,0 +1,32 @@
+[MASTER]
+# Pickle collected data for later comparisons.
+persistent=yes
+
+# List of plugins (as comma separated values of python modules names) to load
+load-plugins=pylint.extensions.docparams
+
+# Use multiple processes to speed up Pylint.
+jobs=4
+
+[MESSAGES CONTROL]
+# Disable the message, report, category or checker with the given id(s).
+disable=
+    C0103,  # invalid-name (we use short names sometimes)
+    R0903,  # too-few-public-methods (Pydantic models)
+    R0913,  # too-many-arguments
+    W0212,  # protected-access (needed for some operations)
+    W0221,  # arguments-differ
+    W0613,  # unused-argument (common in FastAPI dependencies)
+    E1101,  # no-member (false positives with SQLAlchemy)
+    E1102,  # not-callable (false positives with SQLAlchemy func.now())
+    R0801,  # duplicate-code
+    C0415,  # import-outside-toplevel (needed to avoid circular imports)
+    C0301,  # line-too-long (handled by formatter)
+    W0107,  # unnecessary-pass
+    R0914,  # too-many-locals
+    R0915,  # too-many-statements
+    W9016,  # missing-type-doc (type annotations in docstrings not required)
+
+[REPORTS]
+# Activate the evaluation score.
+score=yes
