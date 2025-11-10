@@ -293,10 +293,8 @@ ShortShop/
 │   ├── Dockerfile          # Dockerfile
 │   ├── pytest.ini          # Pytest configuration
 │   └── requirements.txt    # Python dependencies
-├── .dockerignore           # Environment .dockerignore file
 ├── .env                    # Environment variables
 ├── .env-sample             # Environment variables sample
-├── .gitignore              # Environment .gitignore file
 ├── docker-compose.yml      # Container orchestration
 └── README.md               # Project informational file
 ```
