@@ -37,7 +37,7 @@ A modern, async e-commerce API built with FastAPI, PostgreSQL, and Redis. Featur
 
 ### 1. Clone the Repository
 ```bash
-git clone <repository-url>
+git clone https://github.com/MaksymStruk/ShortShop.git
 cd ShortShop
 ```
 
@@ -54,12 +54,12 @@ docker compose up --build --detach
 - **API Root**: http://localhost:8000
 - **Health Check**: http://localhost:8000/health
 
-### 5. Run Tests
+### 5. (Unfinished) Run Tests
 ```bash
 docker compose exec backend pytest -v
 ```
 
-### 6. Run Pylint
+### 6. (Unfinished) Run Pylint
 ```bash
 pylint backend/app/ --rcfile=backend/.pylintrc
 ```
