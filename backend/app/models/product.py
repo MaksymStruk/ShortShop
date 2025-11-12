@@ -50,6 +50,12 @@ class Product(Base):
         cascade="all, delete"
     )
 
+    reviews = relationship(
+        "ProductReview",
+        back_populates="product",
+        cascade="all, delete"
+    )
+
     # Products this product recommends
     recommendations = relationship(
         "ProductRecommendation",
@@ -85,6 +91,21 @@ class ProductVariant(Base):
     def __repr__(self):
         return f"<ProductVariant(product={self.product_id}, color={self.color}, size={self.size})>"
 
+class ProductReview(Base):
+    __tablename__ = "product_review"
+
+    id = Column(Integer, primary_key=True)
+    product_id = Column(Integer, ForeignKey("products.id", ondelete="CASCADE"))
+    created_at = Column(DateTime, server_default=func.now())
+    title = Column(String(120), nullable=False)
+    description = Column(String(300), nullable=False)
+    author_name = Column(String(120), nullable=False)
+    score = Column(Integer, nullable=False)
+
+    product = relationship("Product", back_populates="reviews")
+
+    def __repr__(self):
+        return f"<ProductReviws(product={self.product_id}, review={self.id}, title={self.title}, score={self.score})>"
 
 class ProductImage(Base):
     __tablename__ = "product_images"

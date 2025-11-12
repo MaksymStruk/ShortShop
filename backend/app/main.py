@@ -14,7 +14,7 @@ from fastapi import FastAPI
 from app.log.custom_logger import logger_test, custom_logger as logger
 from app.db.database import Base, async_engine
 from app.models import product
-from app.routers.v1 import server, product, cart
+from app.routers.v1 import server, product, cart, review
 from app.core.config import settings
 from app.core.ascii_art import ASCII_ART
 from app.core.middleware import setup_middlewares
@@ -88,3 +88,4 @@ setup_middlewares(app)
 app.include_router(server.router)
 app.include_router(product.router, prefix="/api/v1")
 app.include_router(cart.router, prefix="/api/v1")
+app.include_router(review.router, prefix="/api/v1")
